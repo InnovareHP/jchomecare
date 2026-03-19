@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(pnpm generate:types)",
+      "Bash(pnpm generate:importmap)",
+      "Bash(npx tsc:*)",
+      "Bash(find C:/Users/lhani/OneDrive/Desktop/ivorzero/ivorzero/jchomecare/src -path */posts* -type f)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(find \"C:/Users/lhani/OneDrive/Desktop/ivorzero/ivorzero/jchomecare/src/app/\\(frontend\\)\" -type f -name \"*.tsx\")",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm add:*)"
+    ]
+  }
+}
