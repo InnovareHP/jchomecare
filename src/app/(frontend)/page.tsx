@@ -177,6 +177,7 @@ export default function HomePage() {
           </StaggerContainer>
         </div>
       </section>
+      {/* //fix color */}
 
       {/* CTA — bold gradient */}
       <section className="relative py-24 md:py-32 bg-[#73a9d9] overflow-hidden">
