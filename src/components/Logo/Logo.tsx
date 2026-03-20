@@ -12,7 +12,7 @@ export const Logo = (props: Props) => {
 
   return (
     <span className={clsx('font-bold text-xl tracking-tight', className)}>
-      <span style={{ color: '#4783b5' }}>JC</span> Home Care
+      <span style={{ color: '#73a9d9' }}>JC</span> Home Care
     </span>
   )
 }

@@ -6,7 +6,15 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import RichText from '@/components/RichText'
 import { formatAuthors } from '@/utilities/formatAuthors'
-import { FadeIn, FadeInUp, StaggerContainer, StaggerItem } from '@/components/Motion'
+import {
+  FadeIn,
+  FadeInUp,
+  RevealText,
+  StaggerContainer,
+  StaggerItem,
+  HoverCard,
+  AnimatedLine,
+} from '@/components/Motion'
 
 type Args = {
   params: Promise<{
@@ -44,48 +52,71 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
 
   return (
     <>
-      {/* Header */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container max-w-2xl mx-auto">
+      {/* Hero — editorial with accent bar */}
+      <section className="relative bg-white overflow-hidden">
+        {/* Top accent bar */}
+        <div className="h-1 bg-gradient-to-r from-[#73a9d9] via-[#73a9d9]/60 to-[#faf3a2]" />
+
+        <div className="absolute bottom-[-15%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[#faf3a2]/10 blur-3xl pointer-events-none" />
+
+        <div className="container relative z-10 max-w-3xl mx-auto py-16 md:py-24">
           <FadeIn>
             <Link
               href="/blogs"
-              className="text-sm text-[#4783b5] hover:underline mb-6 inline-block"
+              className="group inline-flex items-center gap-2 text-sm text-gray-400 font-medium hover:text-[#73a9d9] transition-all mb-10"
             >
-              &larr; Back to Blog
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-gray-200 group-hover:border-[#73a9d9] transition-colors text-xs">&larr;</span>
+              All posts
             </Link>
           </FadeIn>
 
-          <FadeInUp delay={0.1}>
+          <RevealText delay={0.1}>
             {categories.length > 0 && (
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#4783b5] mb-3">
-                {categories.join(', ')}
-              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {categories.map((cat) => (
+                  <span key={cat} className="inline-flex items-center rounded-full bg-[#73a9d9]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#73a9d9]">
+                    {cat}
+                  </span>
+                ))}
+              </div>
             )}
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
               {blog.title}
             </h1>
+          </RevealText>
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-              {hasAuthors && <span>By {formatAuthors(blog.populatedAuthors!)}</span>}
-              {hasAuthors && date && <span>&middot;</span>}
-              {date && <time dateTime={blog.publishedAt!}>{date}</time>}
+          <FadeInUp delay={0.2}>
+            <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
+              {hasAuthors && (
+                <span className="inline-flex items-center gap-2">
+                  <span className="w-7 h-7 rounded-full bg-[#73a9d9]/10 flex items-center justify-center text-xs font-bold text-[#73a9d9]">
+                    {(formatAuthors(blog.populatedAuthors!) ?? '').charAt(0)}
+                  </span>
+                  <span className="font-medium text-gray-700">{formatAuthors(blog.populatedAuthors!) ?? ''}</span>
+                </span>
+              )}
+              {date && (
+                <span className="text-gray-400 flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                  <time dateTime={blog.publishedAt!}>{date}</time>
+                </span>
+              )}
             </div>
           </FadeInUp>
         </div>
       </section>
 
-      <div className="container max-w-2xl mx-auto">
-        <div className="border-t border-gray-100" />
+      <div className="container max-w-3xl mx-auto">
+        <AnimatedLine className="h-[1px] w-full bg-gray-100 rounded-full" />
       </div>
 
       {/* Content */}
-      <section className="py-12 md:py-16 bg-white">
-        <FadeIn className="container max-w-2xl mx-auto" delay={0.2}>
+      <section className="py-16 md:py-24 bg-white">
+        <FadeIn className="container max-w-3xl mx-auto" delay={0.2}>
           {blog.content && (
             <RichText
-              className="prose prose-gray max-w-none"
+              className="prose prose-gray prose-lg max-w-none"
               data={blog.content}
               enableGutter={false}
             />
@@ -95,24 +126,37 @@ export default async function BlogPost({ params: paramsPromise }: Args) {
 
       {/* Related blogs */}
       {blog.relatedBlogs && Array.isArray(blog.relatedBlogs) && blog.relatedBlogs.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="container max-w-2xl mx-auto">
+        <section className="py-20 bg-[#faf3a2]/10">
+          <div className="container max-w-3xl mx-auto">
             <FadeIn>
-              <h2 className="text-xl font-bold text-gray-900 mb-8">Related Posts</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9] mb-2">
+                Keep Reading
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10">
+                Related Posts
+              </h2>
             </FadeIn>
-            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {blog.relatedBlogs.map((related) => {
                 if (typeof related === 'string' || typeof related === 'number') return null
                 return (
                   <StaggerItem key={related.id}>
-                    <Link
-                      href={`/blogs/${related.slug}`}
-                      className="group block border border-gray-100 rounded-xl p-5 transition-colors hover:border-[#4783b5]/30 hover:bg-white"
-                    >
-                      <h3 className="font-semibold text-gray-900 group-hover:text-[#4783b5] transition-colors">
-                        {related.title}
-                      </h3>
-                    </Link>
+                    <HoverCard>
+                      <Link
+                        href={`/blogs/${related.slug}`}
+                        className="group block"
+                      >
+                        <div className="relative rounded-2xl border border-gray-100 bg-white p-6 transition-all hover:shadow-lg hover:shadow-gray-100/50 hover:border-[#73a9d9]/20 overflow-hidden">
+                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#73a9d9] to-[#73a9d9]/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                          <h3 className="font-semibold text-gray-900 group-hover:text-[#73a9d9] transition-colors">
+                            {related.title}
+                          </h3>
+                          <p className="mt-3 text-sm font-medium text-[#73a9d9] flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read post <span>&rarr;</span>
+                          </p>
+                        </div>
+                      </Link>
+                    </HoverCard>
                   </StaggerItem>
                 )
               })}
