@@ -129,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* Services preview — interactive cards */}
-      <section className="py-24 md:py-36 bg-[#faf3a2]/10">
+      <section className="py-24 md:py-36 bg-[#faf3a2]">
         <div className="container">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900">Our Services</h2>

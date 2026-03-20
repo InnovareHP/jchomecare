@@ -162,7 +162,7 @@ export default function ContactPage() {
       </section>
 
       {/* Bottom note */}
-      <section className="py-16 bg-[#faf3a2]/10">
+      <section className="py-16 bg-[#faf3a2]">
         <div className="container">
           <FadeIn className="max-w-2xl mx-auto text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9] mb-4">
