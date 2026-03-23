@@ -21,7 +21,7 @@ export default function AboutPage() {
       <section className="relative py-28 md:py-40 bg-white overflow-hidden">
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
-          src="/about-hero-section.avif"
+          src="/about-hero-section.jpg"
           alt="Hero"
           width={1920}
           height={1080}

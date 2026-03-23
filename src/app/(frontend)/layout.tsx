@@ -25,7 +25,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(plusJakarta.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(plusJakarta.variable, GeistMono.variable, 'overflow-x-hidden')}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
