@@ -153,8 +153,8 @@ export default function ServicesPage() {
 function ServiceContent({ service }: { service: (typeof services)[number] }) {
   return (
     <>
-      <p className="text-6xl font-bold text-black">{service.num}</p>
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+      <p className="text-6xl font-bold text-primary">{service.num}</p>
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold text-primary leading-tight">
         {service.title}
       </h2>
       <AnimatedLine className="mt-5 h-[2px] w-12 bg-[#faf3a2] rounded-full" />

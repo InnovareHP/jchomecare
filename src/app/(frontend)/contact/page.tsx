@@ -72,7 +72,7 @@ export default function ContactPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9]">
                 Your Point of Contact
               </p>
-              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary leading-tight">
                 Christina Sanders
               </h2>
               <p className="mt-2 text-lg text-gray-400">Owner &amp; Operator</p>
@@ -168,7 +168,7 @@ export default function ContactPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9] mb-4">
               We&apos;re Here for You
             </p>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h3 className="text-2xl md:text-3xl font-bold text-primary">
               No question is too small
             </h3>
             <p className="mt-4 text-gray-500 leading-relaxed">

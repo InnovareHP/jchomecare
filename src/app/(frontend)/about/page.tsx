@@ -63,7 +63,7 @@ export default function AboutPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9]">
                 Our Mission
               </p>
-              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary leading-tight">
                 Quality care starts with heart
               </h2>
               <AnimatedLine className="mt-6 h-[2px] w-16 bg-[#faf3a2] rounded-full" />
@@ -123,7 +123,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-36 bg-white">
         <div className="container">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900">
+            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary">
               Our team & expertise
             </h2>
           </FadeIn>

@@ -50,6 +50,9 @@ export const SiteFooter: React.FC = () => {
 
           {/* Get in touch */}
           <StaggerItem>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400 mb-4">
+              Get In Touch
+            </p>
             <div className="flex flex-col gap-3 text-sm text-gray-500">
               <a href="tel:6165002190" className="hover:text-[#73a9d9] transition-colors">
                 616-500-2190

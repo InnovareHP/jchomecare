@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <FadeInLeft>
-              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary leading-tight">
                 Caring for others is a privilege
               </h2>
               <AnimatedLine className="mt-6 h-[2px] w-16 bg-[#faf3a2] rounded-full" />
@@ -132,7 +132,7 @@ export default function HomePage() {
       <section className="py-24 md:py-36 bg-[#faf3a2]">
         <div className="container">
           <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900">Our Services</h2>
+            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-primary">Our Services</h2>
           </FadeIn>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
