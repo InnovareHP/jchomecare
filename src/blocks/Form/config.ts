@@ -14,6 +14,7 @@ export const FormBlock: Block = {
     {
       name: 'form',
       type: 'relationship',
+      // @ts-expect-error — 'forms' collection is created by @payloadcms/plugin-form-builder when enabled
       relationTo: 'forms',
       required: true,
     },

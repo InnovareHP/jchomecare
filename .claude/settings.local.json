@@ -11,7 +11,10 @@
       "Bash(find \"C:/Users/lhani/OneDrive/Desktop/ivorzero/ivorzero/jchomecare/src/app/\\(frontend\\)\" -type f -name \"*.tsx\")",
       "Bash(pnpm lint:*)",
       "Bash(pnpm add:*)",
-      "Bash(pnpm remove:*)"
+      "Bash(pnpm remove:*)",
+      "Bash(npx tsx:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm payload:*)"
     ]
   }
 }
