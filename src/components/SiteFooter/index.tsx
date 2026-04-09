@@ -72,6 +72,14 @@ export const SiteFooter: React.FC = () => {
               >
                 Facebook
               </a>
+              <a
+                href="https://www.linkedin.com/company/jc-home-care-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#73a9d9] transition-colors"
+              >
+                LinkedIn
+              </a>
               <p className="text-gray-400 text-xs mt-1">Mon &ndash; Fri, 9 AM &ndash; 5 PM</p>
             </div>
           </StaggerItem>
@@ -82,6 +90,15 @@ export const SiteFooter: React.FC = () => {
             <p className="text-xs text-gray-400">
               &copy; {new Date().getFullYear()} JC Home Care. All rights reserved.
             </p>
+            <a
+              href="https://innovarehp.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs text-gray-400 hover:text-[#73a9d9] transition-colors"
+            >
+              Powered by
+              <Image src="/innovare-logo.png" alt="InnovareHP" width={200} height={20} />
+            </a>
             <p className="text-xs text-gray-300">Grand Rapids, Michigan</p>
           </div>
         </FadeInUp>
