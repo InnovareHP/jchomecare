@@ -145,11 +145,16 @@ export default async function BlogsPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog — Home Health Care Tips & Caregiver Resources',
   description:
-    'Read the latest stories, tips, and insights about home health care from JC Home Care.',
+    'Read expert tips, caregiver resources, and home health care insights from JC Home Care in Grand Rapids, MI. Advice on dementia care, aging in place & more.',
   openGraph: {
-    title: 'Blog | JC Home Care',
-    description: 'Stories, tips, and insights about home health care from JC Home Care.',
+    title: 'Blog — Home Health Care Tips & Caregiver Resources',
+    description:
+      'Expert tips and caregiver resources from JC Home Care. Insights on dementia care, aging in place, and compassionate caregiving.',
+    url: 'https://jchomecare.net/blogs',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net/blogs',
   },
 }

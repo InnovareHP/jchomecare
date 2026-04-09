@@ -3,7 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { unstable_cache } from 'next/cache'
 
-const getBlogsSitemap = unstable_cache(
+const getCareersSitemap = unstable_cache(
   async () => {
     const payload = await getPayload({ config })
     const SITE_URL =
@@ -12,7 +12,7 @@ const getBlogsSitemap = unstable_cache(
       'https://jchomecare.net'
 
     const results = await payload.find({
-      collection: 'blogs',
+      collection: 'careers',
       overrideAccess: false,
       draft: false,
       depth: 0,
@@ -33,23 +33,23 @@ const getBlogsSitemap = unstable_cache(
 
     const sitemap = results.docs
       ? results.docs
-          .filter((blog) => Boolean(blog?.slug))
-          .map((blog) => ({
-            loc: `${SITE_URL}/blogs/${blog?.slug}`,
-            lastmod: blog.updatedAt || dateFallback,
+          .filter((career) => Boolean(career?.slug))
+          .map((career) => ({
+            loc: `${SITE_URL}/careers/${career?.slug}`,
+            lastmod: career.updatedAt || dateFallback,
           }))
       : []
 
     return sitemap
   },
-  ['blogs-sitemap'],
+  ['careers-sitemap'],
   {
-    tags: ['blogs-sitemap'],
+    tags: ['careers-sitemap'],
   },
 )
 
 export async function GET() {
-  const sitemap = await getBlogsSitemap()
+  const sitemap = await getCareersSitemap()
 
   return getServerSideSitemap(sitemap)
 }

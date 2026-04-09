@@ -11,10 +11,46 @@ import {
   AnimatedLine,
 } from '@/components/Motion'
 import Image from 'next/image'
+import { ContactForm } from './ContactForm'
+
+const contactJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact JC Home Care',
+  url: 'https://jchomecare.net/contact',
+  mainEntity: {
+    '@type': 'HomeHealthCareService',
+    name: 'JC Home Care',
+    telephone: '+1-616-500-2190',
+    email: 'christina@jchomecare.net',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+1-616-500-2190',
+      contactType: 'customer service',
+      availableLanguage: 'English',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '17:00',
+      },
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Grand Rapids',
+      addressRegion: 'MI',
+      addressCountry: 'US',
+    },
+  },
+}
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       {/* Hero — phone number as focal point */}
       <section className="relative py-24 md:py-36 bg-white overflow-hidden">
         <Image
@@ -161,6 +197,30 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Contact form */}
+      <section className="py-24 md:py-36 bg-gray-50/50">
+        <div className="container max-w-2xl mx-auto">
+          <FadeInUp>
+            <div className="text-center mb-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9] mb-4">
+                Send a Message
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary">
+                Get in touch
+              </h2>
+              <p className="mt-3 text-gray-500">
+                Fill out the form below and we&apos;ll get back to you as soon as possible.
+              </p>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15}>
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+              <ContactForm />
+            </div>
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* Bottom note */}
       <section className="py-16 bg-[#faf3a2]">
         <div className="container">
@@ -193,12 +253,16 @@ export default function ContactPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact Us — Call 616-500-2190',
   description:
-    'Contact JC Home Care at 616-500-2190 or christina@jchomecare.net. Office hours Monday-Friday 9am-5pm. 24/7 calls accepted for clients. Grand Rapids, MI home health care.',
+    'Contact JC Home Care for home health care in Grand Rapids, MI. Call 616-500-2190, email christina@jchomecare.net, or send a message. Mon–Fri 9 AM–5 PM, 24/7 for clients.',
   openGraph: {
-    title: 'Contact | JC Home Care',
+    title: 'Contact JC Home Care — Call 616-500-2190',
     description:
-      'Get in touch with JC Home Care. Call 616-500-2190 or email christina@jchomecare.net.',
+      'Reach JC Home Care at 616-500-2190 or christina@jchomecare.net. Home health care in Grand Rapids, Michigan.',
+    url: 'https://jchomecare.net/contact',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net/contact',
   },
 }

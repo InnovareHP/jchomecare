@@ -187,12 +187,16 @@ export default async function CareersPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Careers',
+  title: 'Careers — Caregiver Jobs in Grand Rapids, MI',
   description:
-    'Join the JC Home Care team. Browse open positions and apply online. We are looking for compassionate caregivers in Grand Rapids, MI.',
+    'Join JC Home Care — now hiring compassionate caregivers in Grand Rapids, MI. Browse open home health aide positions and apply online today.',
   openGraph: {
-    title: 'Careers | JC Home Care',
+    title: 'Careers — Caregiver Jobs at JC Home Care',
     description:
-      'Browse open positions and apply to join the JC Home Care team in Grand Rapids, MI.',
+      'Now hiring caregivers in Grand Rapids, MI. Browse open positions and apply online to join the JC Home Care team.',
+    url: 'https://jchomecare.net/careers',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net/careers',
   },
 }

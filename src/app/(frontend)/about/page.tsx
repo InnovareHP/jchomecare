@@ -214,12 +214,16 @@ export default function AboutPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Us — Our Mission & Caregiving Team',
   description:
-    'Learn about JC Home Care — our mission, our team, and the home health care services we provide. Compassionate care for your loved ones.',
+    'Meet the team behind JC Home Care. Owner Christina Sanders and our trained caregivers are dedicated to compassionate, personalized home health care in Grand Rapids, MI.',
   openGraph: {
-    title: 'About | JC Home Care',
+    title: 'About JC Home Care — Our Mission & Caregiving Team',
     description:
-      'Our mission is to provide compassionate, personalized home health care. Learn about our team and services.',
+      'Meet Christina Sanders and the compassionate caregiving team at JC Home Care. Personalized home health care in Grand Rapids, Michigan.',
+    url: 'https://jchomecare.net/about',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net/about',
   },
 }

@@ -36,9 +36,58 @@ const services = [
   },
 ]
 
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: 'JC Home Care — Services',
+  url: 'https://jchomecare.net/services',
+  provider: {
+    '@type': 'HomeHealthCareService',
+    name: 'JC Home Care',
+    url: 'https://jchomecare.net',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Home Health Care Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Dementia Care',
+          description:
+            'Specially trained caregivers provide compassionate dementia care in safe, structured environments.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Activities of Daily Living Assistance',
+          description:
+            'Respectful assistance with bathing, dressing, grooming, toileting, mobility, and eating.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Companionship',
+          description:
+            'Dedicated caregivers who build genuine connections through conversation, activities, and emotional support.',
+        },
+      },
+    ],
+  },
+}
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
       <section className="relative py-28 md:py-40 bg-white overflow-hidden">
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
@@ -187,12 +236,16 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
 }
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Home Health Care Services — Dementia Care, ADL & Companionship',
   description:
-    'JC Home Care offers dementia care, activities of daily living assistance, companionship, and more. Our trained caregivers provide compassionate, personalized home health care.',
+    'JC Home Care services in Grand Rapids, MI: dementia care, activities of daily living (ADL) assistance, companionship & more. Trained in-home caregivers for your loved ones.',
   openGraph: {
-    title: 'Services | JC Home Care',
+    title: 'Home Health Care Services — Dementia Care, ADL & Companionship',
     description:
-      'Dementia care, ADL assistance, companionship, and more. Compassionate home health care services from JC Home Care.',
+      'Dementia care, daily living assistance & companionship from trained caregivers. JC Home Care serves Grand Rapids, Michigan.',
+    url: 'https://jchomecare.net/services',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net/services',
   },
 }

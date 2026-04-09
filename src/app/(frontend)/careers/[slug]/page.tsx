@@ -136,12 +136,21 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 
   const career = result.docs[0]
 
+  const title = career ? `${career.title} — Now Hiring` : 'Career Opportunity'
+  const description =
+    career?.summary ??
+    'View this career opportunity at JC Home Care in Grand Rapids, MI. Apply online today.'
+
   return {
-    title: career ? `${career.title} - Careers` : 'Career',
-    description: career?.summary ?? 'View career opportunity at JC Home Care.',
+    title,
+    description,
     openGraph: {
       title: career ? `${career.title} | JC Home Care Careers` : 'Career | JC Home Care',
-      description: career?.summary ?? 'View career opportunity at JC Home Care.',
+      description,
+      url: `https://jchomecare.net/careers/${slug}`,
+    },
+    alternates: {
+      canonical: `https://jchomecare.net/careers/${slug}`,
     },
   }
 }

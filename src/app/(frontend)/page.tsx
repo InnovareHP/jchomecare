@@ -13,9 +13,54 @@ import {
   AnimatedLine,
 } from '@/components/Motion'
 import Image from 'next/image'
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeHealthCareService',
+  name: 'JC Home Care',
+  url: 'https://jchomecare.net',
+  logo: 'https://jchomecare.net/logo.png',
+  image: 'https://jchomecare.net/hero-section.jpg',
+  telephone: '+1-616-500-2190',
+  email: 'christina@jchomecare.net',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Grand Rapids',
+    addressRegion: 'MI',
+    addressCountry: 'US',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Grand Rapids',
+    sameAs: 'https://en.wikipedia.org/wiki/Grand_Rapids,_Michigan',
+  },
+  description:
+    'JC Home Care provides compassionate, personalized home health care services in Grand Rapids, Michigan — dementia care, ADL assistance, companionship & more.',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
+  serviceType: [
+    'Dementia Care',
+    'Activities of Daily Living Assistance',
+    'Companionship Care',
+    'In-Home Health Care',
+  ],
+  founder: {
+    '@type': 'Person',
+    name: 'Christina Sanders',
+    jobTitle: 'Owner & Operator',
+  },
+}
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero — split layout with floating cards */}
       <section className="relative min-h-[50vh] flex items-center bg-white overflow-hidden">
         {/* Decorative elements */}
@@ -220,12 +265,16 @@ export default function HomePage() {
 }
 
 export const metadata: Metadata = {
-  title: 'JC Home Care | Compassionate Home Health Care Services',
+  title: 'JC Home Care | Home Health Care Services in Grand Rapids, MI',
   description:
-    'JC Home Care provides compassionate home health care services including dementia care, activities of daily living, and companionship. Serving Grand Rapids, MI. Call 616-500-2190.',
+    'JC Home Care provides compassionate home health care in Grand Rapids, MI — dementia care, ADL assistance, companionship & more. Personalized in-home caregivers. Call 616-500-2190.',
   openGraph: {
-    title: 'JC Home Care | Compassionate Home Health Care Services',
+    title: 'JC Home Care | Home Health Care Services in Grand Rapids, MI',
     description:
-      'Changing the face of home care. Compassionate, personalized home health care services.',
+      'Compassionate, personalized home health care services in Grand Rapids, Michigan. Dementia care, daily living assistance & companionship. Call 616-500-2190.',
+    url: 'https://jchomecare.net',
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net',
   },
 }

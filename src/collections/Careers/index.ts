@@ -161,15 +161,32 @@ export const Careers: CollectionConfig<'careers'> = {
   ],
   hooks: {
     afterChange: [
-      ({ doc }) => {
-        revalidatePath('/careers')
-        revalidatePath(`/careers/${doc.slug}`)
+      ({ doc, previousDoc, req: { payload, context } }) => {
+        if (!context.disableRevalidate) {
+          if (doc._status === 'published') {
+            payload.logger.info(`Revalidating careers at /careers/${doc.slug}`)
+            revalidatePath('/careers')
+            revalidatePath(`/careers/${doc.slug}`)
+          }
+
+          if (previousDoc?._status === 'published' && doc._status !== 'published') {
+            payload.logger.info(`Revalidating old career at /careers/${previousDoc.slug}`)
+            revalidatePath('/careers')
+            revalidatePath(`/careers/${previousDoc.slug}`)
+          }
+        }
         return doc
       },
     ],
     afterDelete: [
-      () => {
-        revalidatePath('/careers')
+      ({ doc, req: { context } }) => {
+        if (!context.disableRevalidate) {
+          revalidatePath('/careers')
+          if (doc?.slug) {
+            revalidatePath(`/careers/${doc.slug}`)
+          }
+        }
+        return doc
       },
     ],
   },

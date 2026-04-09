@@ -1,19 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
+import { render } from '@react-email/components'
+import { CareerApplicationEmail } from '@/emails/CareerApplicationEmail'
+import { getServerSideURL } from '@/utilities/getURL'
 
-const DEFAULT_TO_EMAIL = 'jchomecare@example.com'
+const DEFAULT_TO_EMAIL = 'lhanivor@gmail.com'
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER || '',
-    pass: process.env.SMTP_PASS || '',
-  },
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,10 +26,7 @@ export async function POST(req: NextRequest) {
 
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !position) {
-      return NextResponse.json(
-        { error: 'Please fill in all required fields.' },
-        { status: 400 },
-      )
+      return NextResponse.json({ error: 'Please fill in all required fields.' }, { status: 400 })
     }
 
     // Validate email format
@@ -57,44 +49,44 @@ export async function POST(req: NextRequest) {
       // Fallback to generic title
     }
 
-    // Build email
-    const attachments: nodemailer.SendMailOptions['attachments'] = []
+    // Build attachments
+    const attachments: { filename: string; content: Buffer }[] = []
+    const hasResume = !!(resumeFile && resumeFile.size > 0)
 
-    if (resumeFile && resumeFile.size > 0) {
-      const buffer = Buffer.from(await resumeFile.arrayBuffer())
+    if (hasResume) {
+      const buffer = Buffer.from(await resumeFile!.arrayBuffer())
       attachments.push({
-        filename: resumeFile.name,
+        filename: resumeFile!.name,
         content: buffer,
-        contentType: resumeFile.type,
       })
     }
 
     const toEmail = process.env.APPLICATION_EMAIL || DEFAULT_TO_EMAIL
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@jchomecare.com',
+    const html = await render(
+      CareerApplicationEmail({
+        firstName,
+        lastName,
+        email,
+        phone,
+        positionTitle,
+        coverLetter: coverLetter || undefined,
+        hasResume,
+        siteUrl: process.env.NEXT_PUBLIC_SERVER_URL,
+      }),
+    )
+
+    await resend.emails.send({
+      from: process.env.RESEND_FROM || 'noreply@jchomecare.com',
       to: toEmail,
       subject: `New Career Application: ${positionTitle} — ${firstName} ${lastName}`,
-      html: `
-        <h2>New Career Application</h2>
-        <table style="border-collapse:collapse;width:100%;max-width:600px;">
-          <tr><td style="padding:8px;font-weight:bold;">Name</td><td style="padding:8px;">${firstName} ${lastName}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Email</td><td style="padding:8px;"><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Phone</td><td style="padding:8px;">${phone}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Position</td><td style="padding:8px;">${positionTitle}</td></tr>
-          ${coverLetter ? `<tr><td style="padding:8px;font-weight:bold;vertical-align:top;">Cover Letter</td><td style="padding:8px;white-space:pre-wrap;">${coverLetter}</td></tr>` : ''}
-        </table>
-        ${resumeFile && resumeFile.size > 0 ? '<p><em>Resume attached.</em></p>' : '<p><em>No resume attached.</em></p>'}
-      `,
+      html,
       attachments,
     })
 
     return NextResponse.json({ success: true, message: 'Application submitted successfully!' })
   } catch (error) {
     console.error('Career application submission error:', error)
-    return NextResponse.json(
-      { error: 'Something went wrong. Please try again.' },
-      { status: 500 },
-    )
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
   }
 }

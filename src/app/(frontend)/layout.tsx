@@ -54,32 +54,32 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   title: {
-    default: 'JC Home Care | Compassionate Home Health Care Services',
-    template: '%s | JC Home Care',
+    default: 'JC Home Care | Home Health Care Services in Grand Rapids, MI',
+    template: '%s | JC Home Care — Grand Rapids, MI',
   },
   description:
-    'JC Home Care provides compassionate, personalized home health care services in Grand Rapids, MI. Dementia care, activities of daily living, companionship, and more. Call 616-500-2190.',
+    'JC Home Care provides compassionate, personalized home health care services in Grand Rapids, Michigan. Dementia care, ADL assistance, companionship & more. Call 616-500-2190.',
   keywords: [
-    'home health care',
-    'home care',
-    'dementia care',
-    'companionship',
-    'activities of daily living',
-    'ADL assistance',
-    'Grand Rapids',
-    'Michigan',
-    'elder care',
-    'senior care',
-    'in-home care',
+    'home health care Grand Rapids',
+    'home care Grand Rapids MI',
+    'dementia care Grand Rapids',
+    'in-home caregiver Michigan',
+    'activities of daily living assistance',
+    'ADL assistance Grand Rapids',
+    'senior care Grand Rapids',
+    'elder care Michigan',
+    'companionship care',
+    'home health aide Grand Rapids',
     'JC Home Care',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    url: 'https://jchomecare.net',
     siteName: 'JC Home Care',
-    title: 'JC Home Care | Compassionate Home Health Care Services',
+    title: 'JC Home Care | Home Health Care Services in Grand Rapids, MI',
     description:
-      'Changing the face of home care. Compassionate, personalized home health care services for your loved ones.',
+      'Changing the face of home care. Compassionate, personalized home health care services in Grand Rapids, Michigan. Call 616-500-2190.',
   },
   twitter: {
     card: 'summary_large_image',
@@ -87,5 +87,8 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: 'https://jchomecare.net',
   },
 }

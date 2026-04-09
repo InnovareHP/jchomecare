@@ -190,12 +190,19 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 
   if (!blog) return {}
 
+  const description = blog.meta?.description || undefined
+
   return {
     title: blog.title,
-    description: blog.meta?.description || undefined,
+    description,
     openGraph: {
-      title: `${blog.title} | JC Home Care`,
-      description: blog.meta?.description || undefined,
+      title: `${blog.title} | JC Home Care Blog`,
+      description,
+      url: `https://jchomecare.net/blogs/${slug}`,
+      type: 'article',
+    },
+    alternates: {
+      canonical: `https://jchomecare.net/blogs/${slug}`,
     },
   }
 }
