@@ -92,9 +92,10 @@ export default function ServicesPage() {
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
           src="/services-hero-section.jpg"
-          alt="Hero"
+          alt="Home health care services including dementia care and daily living assistance"
           width={1920}
           height={1080}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         <div className="container relative z-10 text-center">

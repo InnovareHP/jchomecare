@@ -56,9 +56,10 @@ export default function ContactPage() {
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
           src="/contact-hero-section.avif"
-          alt="Hero"
+          alt="Contact JC Home Care for home health care services in Grand Rapids"
           width={1920}
           height={1080}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
 

@@ -22,9 +22,10 @@ export default function AboutPage() {
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
           src="/about-hero-section.jpg"
-          alt="Hero"
+          alt="JC Home Care team dedicated to compassionate home health care"
           width={1920}
           height={1080}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />

@@ -39,9 +39,10 @@ export default async function BlogsPage() {
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
           src="/blog-hero-section.avif"
-          alt="Hero"
+          alt="JC Home Care blog with home health care tips and caregiver resources"
           width={1920}
           height={1080}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         <div className="container relative z-10">

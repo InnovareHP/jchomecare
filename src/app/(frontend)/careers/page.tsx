@@ -11,6 +11,7 @@ import {
   StaggerItem,
   HoverCard,
 } from '@/components/Motion'
+import Image from 'next/image'
 
 export default async function CareersPage() {
   const payload = await getPayload({ config: configPromise })
@@ -23,10 +24,7 @@ export default async function CareersPage() {
     draft: false,
     sort: '-publishedAt',
     where: {
-      and: [
-        { _status: { equals: 'published' } },
-        { listingStatus: { equals: 'open' } },
-      ],
+      and: [{ _status: { equals: 'published' } }, { listingStatus: { equals: 'open' } }],
     },
   })
 
@@ -42,14 +40,19 @@ export default async function CareersPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-[#73a9d9]/10 via-white to-[#faf3a2]/10 overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-white overflow-hidden">
+        <Image
+          className="w-full h-full object-cover absolute top-0 left-0"
+          src="/careers-hero-section.jpg"
+          alt="Join the JC Home Care caregiving team in Grand Rapids, MI"
+          width={1920}
+          height={1080}
+          priority
+        />
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <RevealText delay={0.1}>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#73a9d9] mb-4">
-                Join Our Team
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.06] tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.06] tracking-tight">
                 Build a career
                 <br />
                 in{' '}
@@ -58,12 +61,6 @@ export default async function CareersPage() {
                   <span className="absolute -bottom-1 left-0 w-full h-2 bg-[#faf3a2]/40 rounded-full -z-10" />
                 </span>
               </h1>
-            </RevealText>
-            <RevealText delay={0.2}>
-              <p className="mt-6 text-lg text-gray-500 font-light max-w-md">
-                We&apos;re looking for compassionate people who want to make a difference in the
-                lives of others. Explore our open positions below.
-              </p>
             </RevealText>
           </div>
         </div>
@@ -98,7 +95,8 @@ export default async function CareersPage() {
 
                             <div className="flex flex-wrap gap-2 mb-3">
                               <span className="inline-block rounded-full bg-[#73a9d9]/10 px-3 py-1 text-xs font-semibold text-[#73a9d9]">
-                                {employmentTypeLabels[career.employmentType] ?? career.employmentType}
+                                {employmentTypeLabels[career.employmentType] ??
+                                  career.employmentType}
                               </span>
                               {career.department && (
                                 <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500">

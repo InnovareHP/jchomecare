@@ -67,9 +67,10 @@ export default function HomePage() {
         <Image
           className="w-full h-full object-cover absolute top-0 left-0"
           src="/hero-section.jpg"
-          alt="Hero"
+          alt="JC Home Care caregiver providing compassionate in-home care in Grand Rapids, MI"
           width={1000}
           height={1000}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         <div className="container relative z-10">
