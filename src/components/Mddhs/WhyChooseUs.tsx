@@ -56,17 +56,20 @@ const whyChoose: Item[] = [
 export function WhyChooseUs() {
   return (
     <>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="block w-full -mb-px"
-      >
-        <path
-          fill="#faf3a2"
-          fillOpacity="1"
-          d="M0,32L120,64C240,96,480,160,720,165.3C960,171,1200,117,1320,90.7L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-        ></path>
-      </svg>
+      <div className="bg-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          className="block w-full h-[80px] md:h-[140px] -mb-px"
+        >
+          <path
+            fill="#faf3a2"
+            fillOpacity="1"
+            d="M0,32L120,64C240,96,480,160,720,165.3C960,171,1200,117,1320,90.7L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
 
       <section className="pb-20 md:pb-28 bg-[#faf3a2]">
         <div className="container">
