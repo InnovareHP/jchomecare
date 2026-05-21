@@ -69,24 +69,8 @@ export default function ContactPage() {
               We&apos;d love to hear from you
             </h1>
           </RevealText>
-          <FadeInUp delay={0.25}>
-            <a href="tel:6165002190" className="mt-8 inline-block group">
-              <span className="block text-5xl md:text-7xl lg:text-8xl font-extrabold text-[#73a9d9] tracking-tight transition-colors group-hover:text-[#5a93c4]">
-                616-500-2190
-              </span>
-              <span className="block mt-2 text-sm text-gray-400 group-hover:text-gray-500 transition-colors">
-                Tap to call &mdash; 24/7 for clients
-              </span>
-            </a>
-          </FadeInUp>
           <FadeIn delay={0.4}>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="mailto:christina@jchomecare.net"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-[#73a9d9] hover:text-[#73a9d9]"
-              >
-                christina@jchomecare.net
-              </a>
               <a
                 href="https://www.facebook.com/profile.php?id=100090885794398"
                 target="_blank"

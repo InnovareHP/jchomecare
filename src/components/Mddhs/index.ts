@@ -1,0 +1,7 @@
+export { Hero } from './Hero'
+export { WhyBecomeCaregiver } from './WhyBecomeCaregiver'
+export { ThreeSteps } from './ThreeSteps'
+export { WhoWeSupport } from './WhoWeSupport'
+export { WhyChooseUs } from './WhyChooseUs'
+export { Faq } from './Faq'
+export { ReadyToGetStarted } from './ReadyToGetStarted'
