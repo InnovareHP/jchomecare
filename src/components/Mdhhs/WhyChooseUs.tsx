@@ -102,7 +102,7 @@ export function WhyChooseUs() {
               <FadeInLeft className="flex-1 min-h-[280px]">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
-                    src="/why-choose-2-mddhs.png"
+                    src="/why-choose-2-mdhhs.png"
                     alt="Caregiver assisting elderly client at home"
                     fill
                     className="object-cover"
@@ -117,7 +117,7 @@ export function WhyChooseUs() {
               <FadeInRight>
                 <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden">
                   <Image
-                    src="/why-choose-1-mddhs.png"
+                    src="/why-choose-1-mdhhs.png"
                     alt="Family caregiver providing in-home support"
                     fill
                     className="object-cover"

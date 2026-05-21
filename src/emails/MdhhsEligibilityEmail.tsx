@@ -15,7 +15,7 @@ import {
 } from '@react-email/components'
 import * as React from 'react'
 
-export interface MddhsEligibilityEmailProps {
+export interface MdhhsEligibilityEmailProps {
   name: string
   email: string
   phone: string
@@ -23,17 +23,17 @@ export interface MddhsEligibilityEmailProps {
   siteUrl: string
 }
 
-export const MddhsEligibilityEmail = ({
+export const MdhhsEligibilityEmail = ({
   name,
   email,
   phone,
   message,
   siteUrl,
-}: MddhsEligibilityEmailProps) => {
+}: MdhhsEligibilityEmailProps) => {
   return (
     <Html>
       <Head />
-      <Preview>MDDHS eligibility request from {name}</Preview>
+      <Preview>MDHHS eligibility request from {name}</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={header}>
@@ -47,7 +47,7 @@ export const MddhsEligibilityEmail = ({
           </Section>
 
           <Section style={banner}>
-            <Text style={bannerLabel}>MDDHS Eligibility Request</Text>
+            <Text style={bannerLabel}>MDHHS Eligibility Request</Text>
             <Heading style={bannerTitle}>New paid caregiver inquiry</Heading>
           </Section>
 
@@ -91,8 +91,8 @@ export const MddhsEligibilityEmail = ({
           <Section style={footer}>
             <Text style={footerText}>
               This request was submitted through the{' '}
-              <Link href={`${siteUrl}/mddhs`} style={footerLink}>
-                MDDHS page
+              <Link href={`${siteUrl}/mdhhs`} style={footerLink}>
+                MDHHS page
               </Link>
               .
             </Text>
@@ -104,7 +104,7 @@ export const MddhsEligibilityEmail = ({
   )
 }
 
-export default MddhsEligibilityEmail
+export default MdhhsEligibilityEmail
 
 const brandBlue = '#73a9d9'
 const brandBlueDark = '#5a93c4'

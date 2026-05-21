@@ -40,7 +40,6 @@ export function Faq() {
               </span>
             </h2>
           </RevealText>
-          <AnimatedLine className="mt-5 mx-auto h-[2px] w-16 bg-[#faf3a2] rounded-full" />
         </FadeIn>
 
         <StaggerContainer className="max-w-3xl mx-auto space-y-4">

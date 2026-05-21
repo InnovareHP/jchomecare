@@ -33,7 +33,7 @@ export const SiteFooter: React.FC = () => {
               {[
                 { href: '/', label: 'Home' },
                 { href: '/services', label: 'Services' },
-                { href: '/mddhs', label: 'MDDHS' },
+                { href: '/mdhhs', label: 'MDHHS' },
                 { href: '/about', label: 'About' },
                 { href: '/blogs', label: 'Blog' },
                 { href: '/careers', label: 'Careers' },

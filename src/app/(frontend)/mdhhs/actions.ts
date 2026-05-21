@@ -2,13 +2,13 @@
 
 import { Resend } from 'resend'
 import { render } from '@react-email/components'
-import { MddhsEligibilityEmail } from '@/emails/MddhsEligibilityEmail'
+import { MdhhsEligibilityEmail } from '@/emails/MdhhsEligibilityEmail'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 type ActionResult = { success: true } | { success: false; error: string }
 
-export async function sendMddhsEligibility(data: {
+export async function sendMdhhsEligibility(data: {
   name: string
   email: string
   phone: string
@@ -29,7 +29,7 @@ export async function sendMddhsEligibility(data: {
     const toEmail = process.env.CONTACT_EMAIL || 'christina@jchomecare.net'
 
     const html = await render(
-      MddhsEligibilityEmail({
+      MdhhsEligibilityEmail({
         name,
         email,
         phone,
@@ -42,13 +42,13 @@ export async function sendMddhsEligibility(data: {
       from: process.env.RESEND_FROM || 'noreply@jchomecare.com',
       to: toEmail,
       replyTo: email,
-      subject: `MDDHS Eligibility Request: ${name}`,
+      subject: `MDHHS Eligibility Request: ${name}`,
       html,
     })
 
     return { success: true }
   } catch (error) {
-    console.error('MDDHS eligibility action error:', error)
+    console.error('MDHHS eligibility action error:', error)
     return { success: false, error: 'Something went wrong. Please try again.' }
   }
 }

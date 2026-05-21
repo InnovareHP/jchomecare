@@ -10,7 +10,7 @@ export function WhyBecomeCaregiver() {
           <FadeInLeft>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
               <Image
-                src="/mddhs-why-become-caregiver.png"
+                src="/mdhhs-why-become-caregiver.png"
                 alt="Why become a paid caregiver?"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"

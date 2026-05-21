@@ -9,7 +9,7 @@ type Props = {
 }
 
 export function CtaButton({
-  href = '/mddhs#mddhs-contact',
+  href = '/mdhhs#mdhhs-contact',
   label = 'Check Your Eligibility',
   variant = 'primary',
 }: Props) {

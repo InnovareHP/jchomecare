@@ -7,8 +7,8 @@ export function Hero() {
     <section className="relative py-28 md:py-40 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
         <Image
-          src="/bg-hero-mddhs.png"
-          alt="MDDHS Hero"
+          src="/bg-hero-mdhhs.png"
+          alt="MDHHS Hero"
           fill
           priority
           sizes="100vw"
@@ -18,7 +18,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/10" />
       <div className="container relative z-10">
         <FadeInLeft>
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             <RevealText delay={0.1}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary leading-[1.06] tracking-tight">
                 Earn While Caring

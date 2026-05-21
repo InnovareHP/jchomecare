@@ -4,7 +4,7 @@ import { EligibilityForm } from './EligibilityForm'
 export function ReadyToGetStarted() {
   return (
     <section
-      id="mddhs-contact"
+      id="mdhhs-contact"
       className="relative py-24 md:py-32 bg-[#73a9d9] overflow-hidden scroll-mt-24 rounded-tl-[100px] rounded-tr-[100px]"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#73a9d9] via-[#5a93c4] to-[#4a7fad]" />

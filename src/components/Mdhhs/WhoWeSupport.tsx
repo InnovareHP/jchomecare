@@ -77,7 +77,7 @@ export function WhoWeSupport() {
             <FadeInRight>
               <div className="relative w-full h-full min-h-[260px] md:min-h-[320px] lg:min-h-[400px] rounded-2xl overflow-hidden">
                 <Image
-                  src="/who-we-support-mddhs.png"
+                  src="/who-we-support-mdhhs.png"
                   alt="Who we support"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

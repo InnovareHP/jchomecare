@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { cn } from '@/utilities/ui'
-import { sendMddhsEligibility } from '@/app/(frontend)/mddhs/actions'
+import { sendMdhhsEligibility } from '@/app/(frontend)/mdhhs/actions'
 
 type FormValues = {
   name: string
@@ -34,7 +34,7 @@ export const EligibilityForm: React.FC = () => {
 
   const onSubmit = async (data: FormValues) => {
     setServerError('')
-    const result = await sendMddhsEligibility(data)
+    const result = await sendMdhhsEligibility(data)
     if (!result.success) {
       setServerError(result.error)
       return
@@ -80,27 +80,25 @@ export const EligibilityForm: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label htmlFor="mddhs-name" className={labelCls}>
+          <label htmlFor="mdhhs-name" className={labelCls}>
             Your Name <span className="text-[#73a9d9]">*</span>
           </label>
           <input
-            id="mddhs-name"
+            id="mdhhs-name"
             type="text"
             placeholder="Jane Doe"
             className={fieldCls(!!errors.name)}
             {...register('name', { required: 'Required' })}
           />
-          {errors.name && (
-            <p className="mt-0.5 text-[11px] text-red-500">{errors.name.message}</p>
-          )}
+          {errors.name && <p className="mt-0.5 text-[11px] text-red-500">{errors.name.message}</p>}
         </div>
 
         <div>
-          <label htmlFor="mddhs-email" className={labelCls}>
+          <label htmlFor="mdhhs-email" className={labelCls}>
             Your Email <span className="text-[#73a9d9]">*</span>
           </label>
           <input
-            id="mddhs-email"
+            id="mdhhs-email"
             type="email"
             placeholder="jane@example.com"
             className={fieldCls(!!errors.email)}
@@ -115,11 +113,11 @@ export const EligibilityForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="mddhs-phone" className={labelCls}>
+          <label htmlFor="mdhhs-phone" className={labelCls}>
             Phone <span className="text-[#73a9d9]">*</span>
           </label>
           <input
-            id="mddhs-phone"
+            id="mdhhs-phone"
             type="tel"
             placeholder="616-555-0123"
             className={fieldCls(!!errors.phone)}
@@ -132,11 +130,11 @@ export const EligibilityForm: React.FC = () => {
       </div>
 
       <div>
-        <label htmlFor="mddhs-message" className={labelCls}>
+        <label htmlFor="mdhhs-message" className={labelCls}>
           Tell Us About Your Caregiving Situation <span className="text-[#73a9d9]">*</span>
         </label>
         <textarea
-          id="mddhs-message"
+          id="mdhhs-message"
           rows={4}
           placeholder="Share a little about your loved one, the care you already provide, and any questions you may have."
           className={cn(
